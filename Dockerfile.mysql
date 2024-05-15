@@ -1,0 +1,8 @@
+
+FROM mysql:8.0
+
+# Set the root password (change 'password' to your desired password)
+ENV MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+# Expose port 3306 (default for MySQL)
+EXPOSE 3306

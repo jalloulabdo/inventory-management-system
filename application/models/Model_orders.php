@@ -98,9 +98,7 @@ class Model_orders extends CI_Model
 			// fetch the order data 
 
 			$data = array(
-				'customer_name' => $this->input->post('customer_name'),
-	    		'customer_address' => $this->input->post('customer_address'),
-	    		'customer_phone' => $this->input->post('customer_phone'),
+				'customer_id' => $this->input->post('customer_id'),
 	    		'gross_amount' => $this->input->post('gross_amount_value'),
 	    		'service_charge_rate' => $this->input->post('service_charge_rate'),
 	    		'service_charge' => ($this->input->post('service_charge_value') > 0) ? $this->input->post('service_charge_value'):0,
@@ -109,6 +107,7 @@ class Model_orders extends CI_Model
 	    		'net_amount' => $this->input->post('net_amount_value'),
 	    		'discount' => $this->input->post('discount'),
 	    		'paid_status' => $this->input->post('paid_status'),
+	    		'type_payment' => $this->input->post('type_payment'),
 	    		'user_id' => $user_id
 	    	);
 

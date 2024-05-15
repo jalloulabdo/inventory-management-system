@@ -66,11 +66,18 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Client</td>
+                        <td>Clients</td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="createClient" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="updateClient" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="viewClient" class="minimal"></td>
                         <td><input type="checkbox" name="permission[]" id="permission" value="deleteClient" class="minimal"></td>
+                      </tr>
+                      <tr>
+                        <td>Unities</td>
+                        <td><input type="checkbox" name="permission[]" id="permission" value="createUnity" class="minimal"></td>
+                        <td><input type="checkbox" name="permission[]" id="permission" value="updateUnity" class="minimal"></td>
+                        <td><input type="checkbox" name="permission[]" id="permission" value="viewUnity" class="minimal"></td>
+                        <td><input type="checkbox" name="permission[]" id="permission" value="deleteUnity" class="minimal"></td>
                       </tr>
                       <tr>
                         <td>Members</td>

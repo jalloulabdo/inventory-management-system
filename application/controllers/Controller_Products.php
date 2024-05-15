@@ -17,6 +17,7 @@ class Controller_Products extends Admin_Controller
 		$this->load->model('model_category');
 		$this->load->model('model_stores');
 		$this->load->model('model_attributes');
+		$this->load->model('model_unity');
 	}
 
     /* 
@@ -70,6 +71,7 @@ class Controller_Products extends Admin_Controller
 			$result['data'][$key] = array(
 				$img,
 				// $value['sku'],
+				$value['serial'],
 				$value['name'],
 				'$'.$value['price'],
                 $value['qty'] . ' ' . $qty_status,
@@ -96,6 +98,7 @@ class Controller_Products extends Admin_Controller
         }
 
 		$this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
+		$this->form_validation->set_rules('serial', 'Serial', 'trim|required');
 		// $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
 		$this->form_validation->set_rules('price', 'Price', 'trim|required');
 		$this->form_validation->set_rules('qty', 'Qty', 'trim|required');
@@ -109,6 +112,7 @@ class Controller_Products extends Admin_Controller
 
         	$data = array(
         		'name' => $this->input->post('product_name'),
+        		'serial' => $this->input->post('serial'),
         		// 'sku' => $this->input->post('sku'),
         		'price' => $this->input->post('price'),
         		'qty' => $this->input->post('qty'),
@@ -119,6 +123,7 @@ class Controller_Products extends Admin_Controller
         		'category_id' => json_encode($this->input->post('category')),
                 'store_id' => $this->input->post('store'),
         		'availability' => $this->input->post('availability'),
+        		'unity_id' => $this->input->post('unity'),
         	);
 
         	$create = $this->model_products->create($data);
@@ -150,6 +155,7 @@ class Controller_Products extends Admin_Controller
 			$this->data['brands'] = $this->model_brands->getActiveBrands();        	
 			$this->data['category'] = $this->model_category->getActiveCategroy();        	
 			$this->data['stores'] = $this->model_stores->getActiveStore();        	
+			$this->data['unities'] = $this->model_unity->getActiveUnity();        	
 
             $this->render_template('products/create', $this->data);
         }	
@@ -201,7 +207,7 @@ class Controller_Products extends Admin_Controller
         if(!$product_id) {
             redirect('dashboard', 'refresh');
         }
-
+		$this->form_validation->set_rules('serial', 'Serial', 'trim|required');
         $this->form_validation->set_rules('product_name', 'Product name', 'trim|required');
         // $this->form_validation->set_rules('sku', 'SKU', 'trim|required');
         $this->form_validation->set_rules('price', 'Price', 'trim|required');
@@ -214,6 +220,7 @@ class Controller_Products extends Admin_Controller
             
             $data = array(
                 'name' => $this->input->post('product_name'),
+                'serial' => $this->input->post('serial'),
                 // 'sku' => $this->input->post('sku'),
                 'price' => $this->input->post('price'),
                 'qty' => $this->input->post('qty'),
@@ -223,6 +230,7 @@ class Controller_Products extends Admin_Controller
                 'category_id' => json_encode($this->input->post('category')),
                 'store_id' => $this->input->post('store'),
                 'availability' => $this->input->post('availability'),
+                'unity_id' => $this->input->post('unity'),
             );
 
             
@@ -261,6 +269,7 @@ class Controller_Products extends Admin_Controller
             $this->data['brands'] = $this->model_brands->getActiveBrands();         
             $this->data['category'] = $this->model_category->getActiveCategroy();           
             $this->data['stores'] = $this->model_stores->getActiveStore();          
+			$this->data['unities'] = $this->model_unity->getActiveUnity();        	
 
             $product_data = $this->model_products->getProductData($product_id);
             $this->data['product_data'] = $product_data;

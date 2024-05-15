@@ -63,7 +63,7 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td>Client</td>
+                        <td>Clients</td>
                         <td><input type="checkbox" class="minimal" name="permission[]" id="permission" class="minimal" value="createClient" <?php if($serialize_permission) {
                           if(in_array('createClient', $serialize_permission)) { echo "checked"; } 
                         } ?> ></td>
@@ -83,7 +83,27 @@
                         }
                          ?>></td>
                       </tr>
-
+                      <tr>
+                        <td>Unities</td>
+                        <td><input type="checkbox" class="minimal" name="permission[]" id="permission" class="minimal" value="createUnity" <?php if($serialize_permission) {
+                          if(in_array('createUnity', $serialize_permission)) { echo "checked"; } 
+                        } ?> ></td>
+                        <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="updateUnity" <?php 
+                        if($serialize_permission) {
+                          if(in_array('updateUnity', $serialize_permission)) { echo "checked"; } 
+                        }
+                        ?>></td>
+                        <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="viewUnity" <?php 
+                        if($serialize_permission) {
+                          if(in_array('viewUnity', $serialize_permission)) { echo "checked"; }   
+                        }
+                        ?>></td>
+                        <td><input type="checkbox" name="permission[]" id="permission" class="minimal" value="deleteUnity" <?php 
+                        if($serialize_permission) {
+                          if(in_array('deleteUnity', $serialize_permission)) { echo "checked"; }  
+                        }
+                         ?>></td>
+                      </tr> 
                       <tr>
                         <td>Members</td>
                         <td><input type="checkbox" class="minimal" name="permission[]" id="permission" class="minimal" value="createUser" <?php if($serialize_permission) {

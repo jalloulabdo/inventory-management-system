@@ -55,6 +55,7 @@
                 <th>DateTime</th>
                 <th>Prod.Qty</th>
                 <th>Amount</th>
+                <th>Paiment</th>
              
                 <?php if(in_array('updateOrder', $user_permission) || in_array('viewOrder', $user_permission) || in_array('deleteOrder', $user_permission)): ?>
                   <th>Actions</th>

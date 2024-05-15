@@ -56,7 +56,11 @@
                       </div>
                   </div>
                 </div>
-
+                
+                <div class="form-group">
+                  <label for="product_name">Serial</label>
+                  <input type="text" class="form-control" id="serial" name="serial" placeholder="Enter serial" value="<?php echo $product_data['serial']; ?>"  autocomplete="off"/>
+                </div>
                 <div class="form-group">
                   <label for="product_name">Product name</label>
                   <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" value="<?php echo $product_data['name']; ?>"  autocomplete="off"/>
@@ -118,7 +122,15 @@
                     <?php endforeach ?>
                   </select>
                 </div>
-
+                <div class="form-group">
+                  <label for="category">Unity</label>
+                  <select class="form-control select_group" id="unity" name="unity" >
+                    <option value=""></option>
+                    <?php foreach ($unities as $k => $v): ?>
+                      <option value="<?php echo $v['id'] ?>" <?php if($v['id']== $product_data['unity_id']) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
+                    <?php endforeach ?>
+                  </select>
+                </div>
                 <div class="form-group">
                   <label for="store">Warehouse</label>
                   <select class="form-control select_group" id="store" name="store">

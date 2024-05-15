@@ -16,6 +16,7 @@ class Controller_Orders extends Admin_Controller
 		$this->load->model('model_products');
 		$this->load->model('model_clients');
 		$this->load->model('model_company');
+		$this->load->model('model_unity');
 	}
 
 	/* 
@@ -42,7 +43,7 @@ class Controller_Orders extends Admin_Controller
 		$data = $this->model_orders->getOrdersData();
 
 		foreach ($data as $key => $value) {
-
+			$client = null;
 			$count_total_item = $this->model_orders->countOrderItem($value['id']);
 			$date = date('d-m-Y', $value['date_time']);
 			$time = date('h:i a', $value['date_time']);
@@ -70,13 +71,17 @@ class Controller_Orders extends Admin_Controller
 			else {
 				$paid_status = '<span class="label label-warning">Not Paid</span>';
 			}
-
+			if($value['customer_id']){
+				$client = $this->model_clients->getClientData($value['customer_id']);
+			}
+			$paid_status = ($value['paid_status'] == 1) ? '<span class="label label-success">Paid</span>' : '<span class="label label-warning">UnPaid</span>';
 			$result['data'][$key] = array(
 				$value['bill_no'],
-				$value['customer_id'],
+				$client ? $client['firstname'].' '.$client['lastname'] : '',
 				$date_time,
 				$count_total_item,
 				'$'.$value['net_amount'],
+				$paid_status,
 				// $paid_status,
 				$buttons
 			);
@@ -205,8 +210,8 @@ class Controller_Orders extends Admin_Controller
 
     		$this->data['order_data'] = $result;
 
-        	$this->data['products'] = $this->model_products->getActiveProductData();      	
-
+        	$this->data['products'] = $this->model_products->getActiveProductData();
+			$this->data['clients'] = $this->model_clients->getClientDataAll();
             $this->render_template('orders/edit', $this->data);
         }
 	}
@@ -260,7 +265,10 @@ class Controller_Orders extends Admin_Controller
 
 			$order_date = date('d/m/Y', $order_data['date_time']);
 			$paid_status = ($order_data['paid_status'] == 1) ? "Paid" : "Unpaid";
-
+			
+			if ($order_data['customer_id']) {
+				$client = $this->model_clients->getClientData($order_data['customer_id']);
+			}
 			$html = '<!-- Main content -->
 			<!DOCTYPE html>
 			<html>
@@ -291,15 +299,25 @@ class Controller_Orders extends Admin_Controller
 			      <!-- /.col -->
 			    </div>
 			    <!-- info row -->
-			    <div class="row invoice-info">
-			      
-			      <div class="col-sm-4 invoice-col">
-			        
-			        <b>Bill ID:</b> '.$order_data['bill_no'].'<br>
-			        <b>Customer:</b> '.$order_data['customer_name'].'<br>
-			        <b>Address:</b> '.$order_data['customer_address'].' <br />
-			        <b>Contact:</b> '.$order_data['customer_phone'].'
-			      </div>
+			    <div class="row invoice-info">';
+			    if(isset($client)) {
+					$html .= '<div class="col-sm-4 invoice-col">
+						
+						<b>Bill ID:</b> '.$order_data['bill_no'].'<br>
+						<b>Customer:</b> '.$client['firstname'] .' '.$client['lastname'] .'<br>
+						<b>Address:</b> '.$client['address'].' <br />
+						<b>Contact:</b> '.$client['phone'].'
+					  </div>';
+				} else {
+					$html .= '<div class="col-sm-4 invoice-col">
+						
+						<b>Bill ID:</b> '.$order_data['bill_no'].'<br>
+						<b>Customer:</b> <br>
+						<b>Address:</b>  <br />
+						<b>Contact:</b>
+					  </div>';
+				}
+				$html .= '
 			      <!-- /.col -->
 			    </div>
 			    <!-- /.row -->
@@ -311,6 +329,8 @@ class Controller_Orders extends Admin_Controller
 			          <thead>
 			          <tr>
 			            <th>Product</th>
+						<th>Serial</th>
+						<th>Unity</th>
 			            <th>Price</th>
 			            <th>Qty</th>
 			            <th>Amount</th>
@@ -319,11 +339,18 @@ class Controller_Orders extends Admin_Controller
 			          <tbody>'; 
 
 			          foreach ($orders_items as $k => $v) {
-
+						$unity_name = null;
 			          	$product_data = $this->model_products->getProductData($v['product_id']); 
-			          	
+						if(isset($product_data['unity_id'])){
+							$unity = $this->model_unity->getUnityData($product_data['unity_id']); 
+							if (isset($unity)) {
+								$unity_name = $unity['name'];
+							}
+						}
 			          	$html .= '<tr>
 				            <td>'.$product_data['name'].'</td>
+				            <td>'.$product_data['serial'].'</td>
+				            <td>'.$unity_name.'</td>
 				            <td>$'.$v['rate'].'</td>
 				            <td>'.$v['qty'].'</td>
 				            <td>$'.$v['amount'].'</td>
@@ -374,8 +401,14 @@ class Controller_Orders extends Admin_Controller
 			            <tr>
 			              <th>Bill Status:</th>
 			              <td>'.$paid_status.'</td>
-			            </tr>
-			          </table>
+			            </tr>';
+						if(isset($order_data['type_payment'])) {
+							$html .= '<tr>
+							<th>Type payment:</th>
+							<td>'.$order_data['type_payment'].'</td>
+						  </tr>';
+						}
+						$html .= '</table>
 			        </div>
 			      </div>
 			      <!-- /.col -->

@@ -58,7 +58,10 @@
                       </div>
                   </div>
                 </div>
-
+                <div class="form-group">
+                  <label for="product_name">Serial</label>
+                  <input type="text" class="form-control" id="serial" name="serial" placeholder="Enter serial" autocomplete="off"/>
+                </div>
                 <div class="form-group">
                   <label for="product_name">Product name</label>
                   <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Enter product name" autocomplete="off"/>
@@ -112,6 +115,16 @@
                   <label for="category">Category</label>
                   <select class="form-control select_group" id="category" name="category[]" multiple="multiple">
                     <?php foreach ($category as $k => $v): ?>
+                      <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
+                    <?php endforeach ?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="category">Unity</label>
+                  <select class="form-control select_group" id="unity" name="unity" >
+                    <option value=""></option>
+                    <?php foreach ($unities as $k => $v): ?>
                       <option value="<?php echo $v['id'] ?>"><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>

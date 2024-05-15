@@ -29,6 +29,14 @@
             </li>
           <?php endif; ?>
 
+          <?php if(in_array('createUnity', $user_permission) || in_array('updateUnity', $user_permission) || in_array('viewUnity', $user_permission) || in_array('deleteUnity', $user_permission)): ?>
+            <li id="unityNav">
+              <a href="<?php echo base_url('Controller_Unity/') ?>">
+                <i class="fa fa-window-minimize"></i> <span>Unities</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
           <?php if(in_array('createStore', $user_permission) || in_array('updateStore', $user_permission) || in_array('viewStore', $user_permission) || in_array('deleteStore', $user_permission)): ?>
             <li id="storeNav">
               <a href="<?php echo base_url('Controller_Warehouse/') ?>">

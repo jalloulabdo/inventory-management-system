@@ -50,7 +50,7 @@
               <thead >
               <tr>
                 <th>Image</th>
-                
+                <th>Serial</th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Qty</th>
