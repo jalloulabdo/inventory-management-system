@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : sam. 11 mai 2024 à 19:49
+-- Généré le : mar. 04 juin 2024 à 23:18
 -- Version du serveur : 8.0.30
 -- Version de PHP : 8.1.10
 
@@ -102,15 +102,10 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`id`, `name`, `active`) VALUES
-(15, 'Computer', 1),
-(16, 'Clothes', 1),
-(17, 'Smartphone', 1),
-(19, 'Laptop', 1),
-(20, 'Accessories', 1),
-(21, 'Others', 1),
-(22, 'test item', 1),
-(23, 'test item', 1),
-(25, 'test', 1);
+(30, 'phone', 1),
+(31, 'computer', 1),
+(32, 'camera', 1),
+(34, 'new', 1);
 
 -- --------------------------------------------------------
 
@@ -204,7 +199,7 @@ CREATE TABLE `groups` (
 --
 
 INSERT INTO `groups` (`id`, `group_name`, `permission`) VALUES
-(1, 'Administrator', 'a:37:{i:0;s:12:\"createClient\";i:1;s:12:\"updateClient\";i:2;s:10:\"viewClient\";i:3;s:12:\"deleteClient\";i:4;s:10:\"createUser\";i:5;s:10:\"updateUser\";i:6;s:8:\"viewUser\";i:7;s:10:\"deleteUser\";i:8;s:11:\"createGroup\";i:9;s:11:\"updateGroup\";i:10;s:9:\"viewGroup\";i:11;s:11:\"deleteGroup\";i:12;s:11:\"createBrand\";i:13;s:11:\"updateBrand\";i:14;s:9:\"viewBrand\";i:15;s:11:\"deleteBrand\";i:16;s:14:\"createCategory\";i:17;s:14:\"updateCategory\";i:18;s:12:\"viewCategory\";i:19;s:14:\"deleteCategory\";i:20;s:11:\"createStore\";i:21;s:11:\"updateStore\";i:22;s:9:\"viewStore\";i:23;s:11:\"deleteStore\";i:24;s:15:\"createAttribute\";i:25;s:15:\"updateAttribute\";i:26;s:13:\"viewAttribute\";i:27;s:15:\"deleteAttribute\";i:28;s:13:\"createProduct\";i:29;s:13:\"updateProduct\";i:30;s:11:\"viewProduct\";i:31;s:13:\"deleteProduct\";i:32;s:11:\"createOrder\";i:33;s:11:\"updateOrder\";i:34;s:9:\"viewOrder\";i:35;s:11:\"deleteOrder\";i:36;s:13:\"updateCompany\";}'),
+(1, 'Administrator', 'a:41:{i:0;s:12:\"createClient\";i:1;s:12:\"updateClient\";i:2;s:10:\"viewClient\";i:3;s:12:\"deleteClient\";i:4;s:11:\"createUnity\";i:5;s:11:\"updateUnity\";i:6;s:9:\"viewUnity\";i:7;s:11:\"deleteUnity\";i:8;s:10:\"createUser\";i:9;s:10:\"updateUser\";i:10;s:8:\"viewUser\";i:11;s:10:\"deleteUser\";i:12;s:11:\"createGroup\";i:13;s:11:\"updateGroup\";i:14;s:9:\"viewGroup\";i:15;s:11:\"deleteGroup\";i:16;s:11:\"createBrand\";i:17;s:11:\"updateBrand\";i:18;s:9:\"viewBrand\";i:19;s:11:\"deleteBrand\";i:20;s:14:\"createCategory\";i:21;s:14:\"updateCategory\";i:22;s:12:\"viewCategory\";i:23;s:14:\"deleteCategory\";i:24;s:11:\"createStore\";i:25;s:11:\"updateStore\";i:26;s:9:\"viewStore\";i:27;s:11:\"deleteStore\";i:28;s:15:\"createAttribute\";i:29;s:15:\"updateAttribute\";i:30;s:13:\"viewAttribute\";i:31;s:15:\"deleteAttribute\";i:32;s:13:\"createProduct\";i:33;s:13:\"updateProduct\";i:34;s:11:\"viewProduct\";i:35;s:13:\"deleteProduct\";i:36;s:11:\"createOrder\";i:37;s:11:\"updateOrder\";i:38;s:9:\"viewOrder\";i:39;s:11:\"deleteOrder\";i:40;s:13:\"updateCompany\";}'),
 (5, 'Testing', 'a:24:{i:0;s:10:\"updateUser\";i:1;s:8:\"viewUser\";i:2;s:11:\"createGroup\";i:3;s:11:\"updateGroup\";i:4;s:9:\"viewGroup\";i:5;s:11:\"createBrand\";i:6;s:11:\"updateBrand\";i:7;s:9:\"viewBrand\";i:8;s:14:\"createCategory\";i:9;s:14:\"updateCategory\";i:10;s:12:\"viewCategory\";i:11;s:11:\"createStore\";i:12;s:11:\"updateStore\";i:13;s:9:\"viewStore\";i:14;s:15:\"createAttribute\";i:15;s:15:\"updateAttribute\";i:16;s:13:\"viewAttribute\";i:17;s:13:\"createProduct\";i:18;s:13:\"updateProduct\";i:19;s:11:\"viewProduct\";i:20;s:11:\"createOrder\";i:21;s:11:\"updateOrder\";i:22;s:9:\"viewOrder\";i:23;s:13:\"updateCompany\";}'),
 (6, 'Employee', 'a:12:{i:0;s:10:\"createUser\";i:1;s:10:\"updateUser\";i:2;s:8:\"viewUser\";i:3;s:11:\"createBrand\";i:4;s:11:\"updateBrand\";i:5;s:9:\"viewBrand\";i:6;s:13:\"createProduct\";i:7;s:13:\"updateProduct\";i:8;s:11:\"viewProduct\";i:9;s:11:\"createOrder\";i:10;s:11:\"updateOrder\";i:11;s:9:\"viewOrder\";}'),
 (7, 'RH', 'a:28:{i:0;s:12:\"createClient\";i:1;s:12:\"updateClient\";i:2;s:10:\"viewClient\";i:3;s:12:\"deleteClient\";i:4;s:10:\"createUser\";i:5;s:10:\"updateUser\";i:6;s:8:\"viewUser\";i:7;s:10:\"deleteUser\";i:8;s:11:\"createGroup\";i:9;s:11:\"updateGroup\";i:10;s:9:\"viewGroup\";i:11;s:11:\"deleteGroup\";i:12;s:11:\"createBrand\";i:13;s:11:\"updateBrand\";i:14;s:9:\"viewBrand\";i:15;s:14:\"createCategory\";i:16;s:14:\"updateCategory\";i:17;s:12:\"viewCategory\";i:18;s:11:\"createStore\";i:19;s:11:\"updateStore\";i:20;s:9:\"viewStore\";i:21;s:15:\"createAttribute\";i:22;s:15:\"updateAttribute\";i:23;s:13:\"viewAttribute\";i:24;s:13:\"createProduct\";i:25;s:13:\"updateProduct\";i:26;s:11:\"viewProduct\";i:27;s:11:\"createOrder\";}');
@@ -228,6 +223,7 @@ CREATE TABLE `orders` (
   `net_amount` varchar(255) NOT NULL,
   `discount` varchar(255) NOT NULL,
   `paid_status` int NOT NULL,
+  `type_payment` varchar(255) DEFAULT NULL,
   `user_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -235,17 +231,11 @@ CREATE TABLE `orders` (
 -- Déchargement des données de la table `orders`
 --
 
-INSERT INTO `orders` (`id`, `bill_no`, `date_time`, `customer_id`, `gross_amount`, `service_charge_rate`, `service_charge`, `vat_charge_rate`, `vat_charge`, `net_amount`, `discount`, `paid_status`, `user_id`) VALUES
-(4, 'BILPR-239D', '1526279725', 0, '2349.00', '13', '305.37', '10', '234.90', '2880.27', '9', 1, 1),
-(5, 'BILPR-0266', '1526358119', 0, '1147.00', '13', '149.11', '10', '114.70', '1410.81', '0', 1, 1),
-(6, 'BILPR-D7E1', '1618851771', 0, '1350.00', '13', '175.50', '10', '135.00', '1660.50', '0', 1, 1),
-(7, 'BILPR-BE47', '1627479766', 0, '1350.00', '13', '175.50', '10', '135.00', '1660.50', '0', 1, 1),
-(8, 'BILPR-96FB', '1636210952', 0, '189.00', '13', '24.57', '10', '18.90', '232.47', '0', 2, 1),
-(9, 'BILPR-6886', '1636216188', 0, '503.00', '13', '65.39', '10', '50.30', '613.69', '5', 1, 1),
-(10, 'BILPR-DF05', '1636217358', 0, '3537.00', '13', '459.81', '10', '353.70', '4340.51', '10', 1, 1),
-(11, 'BILPR-508F', '1714935340', 0, '5481.00', '13', '712.53', '10', '548.10', '6741.63', '', 1, 1),
-(12, 'BILPR-590A', '1714937156', 0, '852.00', '13', '110.76', '10', '85.20', '1047.96', '', 2, 1),
-(13, 'BILPR-1345', '1715449645', 1, '117.00', '13', '15.21', '10', '11.70', '143.91', '', 2, 1);
+INSERT INTO `orders` (`id`, `bill_no`, `date_time`, `customer_id`, `gross_amount`, `service_charge_rate`, `service_charge`, `vat_charge_rate`, `vat_charge`, `net_amount`, `discount`, `paid_status`, `type_payment`, `user_id`) VALUES
+(1, 'BILPR-5D1C', '1716410397', 1, '1000.00', '13', '130.00', '10', '100.00', '1230.00', '', 1, 'CHQ', 1),
+(2, 'BILPR-9A4D', '1712469471', 6, '18318.00', '13', '2381.34', '10', '1831.80', '22531.14', '', 1, 'espece', 1),
+(3, 'BILPR-B045', '1716496996', 6, '16830.00', '13', '2187.90', '10', '1683.00', '20700.90', '', 1, NULL, 1),
+(4, 'BILPR-4890', '1716925739', 1, '25595.00', '13', '3327.35', '10', '2559.50', '31481.85', '', 1, '', 1);
 
 -- --------------------------------------------------------
 
@@ -267,26 +257,13 @@ CREATE TABLE `orders_item` (
 --
 
 INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `qty`, `rate`, `amount`) VALUES
-(12, 7, 12, '1', '1350', '1350.00'),
-(17, 8, 13, '1', '189', '189.00'),
-(22, 5, 11, '6', '3', '18.00'),
-(23, 5, 10, '1', '1129', '1129.00'),
-(24, 4, 8, '1', '2349', '2349.00'),
-(25, 6, 12, '1', '1350', '1350.00'),
-(28, 9, 16, '13', '35', '455.00'),
-(29, 9, 11, '16', '3', '48.00'),
-(34, 10, 17, '8', '98', '784.00'),
-(35, 10, 16, '10', '35', '350.00'),
-(36, 10, 11, '18', '3', '54.00'),
-(37, 10, 8, '2', '2349', '2349.00'),
-(46, 11, 14, '44', '47', '2068.00'),
-(47, 11, 16, '25', '35', '875.00'),
-(48, 11, 13, '1', '189', '189.00'),
-(49, 11, 8, '1', '2349', '2349.00'),
-(50, 12, 16, '22', '35', '770.00'),
-(51, 12, 15, '1', '82', '82.00'),
-(52, 13, 16, '1', '35', '35.00'),
-(53, 13, 15, '4', '82', '82.00');
+(9, 1, 27, '15', '765', '765.00'),
+(10, 1, 26, '9', '235', '235.00'),
+(11, 2, 24, '10', '223', '223.00'),
+(12, 2, 26, '77', '235', '18095.00'),
+(13, 3, 27, '22', '765', '16830.00'),
+(15, 4, 27, '32', '765', '24480.00'),
+(16, 4, 24, '5', '223', '1115.00');
 
 -- --------------------------------------------------------
 
@@ -296,16 +273,19 @@ INSERT INTO `orders_item` (`id`, `order_id`, `product_id`, `qty`, `rate`, `amoun
 
 CREATE TABLE `products` (
   `id` int NOT NULL,
+  `serial` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `sku` varchar(255) NOT NULL,
   `price` varchar(255) NOT NULL,
   `qty` varchar(255) NOT NULL,
+  `new_qty` int DEFAULT NULL,
   `image` text NOT NULL,
   `description` text NOT NULL,
   `attribute_value_id` text,
   `brand_id` text NOT NULL,
   `category_id` text NOT NULL,
   `store_id` int NOT NULL,
+  `unity_id` int DEFAULT NULL,
   `availability` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
@@ -313,16 +293,10 @@ CREATE TABLE `products` (
 -- Déchargement des données de la table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `sku`, `price`, `qty`, `image`, `description`, `attribute_value_id`, `brand_id`, `category_id`, `store_id`, `availability`) VALUES
-(8, 'Alienware Aurora R13 Gaming Desktop', '', '2349', '15', 'assets/images/product_image/6186947ff0685.jpg', '<p>190+ FPS, VR Ready, 12th Gen Intel® Core™ i7 12700KF,&nbsp;\r\n\r\nWindows 11 Home,&nbsp;\r\n\r\nNVIDIA® GeForce RTX™ 3060 Ti 8GB GDDR6 LHR,&nbsp;\r\n\r\n16GB Dual Channel DDR5 at 4400MHz; up to 128GB,&nbsp;\r\n\r\n512GB NVMe M.2 PCIe SSD</p>', '[\"30\",\"21\"]', '[\"15\"]', '[\"7\"]', 5, 1),
-(10, 'Apple MacBook Air', '', '1129', '30', 'assets/images/product_image/61856bae9f4d1.jpg', '<p>Our first chip designed specifically for Mac. Packed with an astonishing 16 billion transistors, the Apple M1 system on a chip (SoC) integrates the CPU, GPU, Neural Engine, I/O, and so much more onto a single tiny chip. With incredible performance, custom technologies, and industry-leading power efficiency. M1 is not just a next step for Mac , it’s another level entirely.\r\n\r\n <br></p>', '[\"30\",\"20\"]', '[\"19\"]', '[\"7\"]', 5, 1),
-(11, 'Rubik\'s Cube', '', '3', '83', 'assets/images/product_image/6186a7dc390d6.jpg', '<p>\r\n\r\nThe Rubik\'s Cube is a 3-D combination puzzle invented in 1974 by Hungarian sculptor and professor of architecture Ernő Rubik.\r\n\r\n<br></p>', '[\"17\",\"35\"]', '[\"21\"]', '[\"13\"]', 6, 1),
-(12, 'Predator Helios 300', '', '1350', '8', 'assets/images/product_image/618567013cc1e.jpg', '<p>\r\n\r\nThe Helios 300 drops you right into the game with everything you need to obliterate the opposition on a blisteringly fast 240Hz1&nbsp;/3ms2&nbsp;display. Only now, we’ve armed it with an NVIDIA®&nbsp;GeForce RTX™ 30801, a 10th&nbsp;Gen Intel®&nbsp;Core™ i7 Mobile Processor1&nbsp;and our custom-engineered 4th&nbsp;Gen AeroBlade™ 3D Technology.\r\n\r\n<br></p>', '[\"17\",\"21\"]', '[\"19\"]', '[\"7\"]', 5, 1),
-(13, 'Homall Gaming Chair', '', '189', '64', 'assets/images/product_image/6186961b7d248.jpg', '<p>\r\n\r\nHigh density shaping foam, more comfortable, elasticity resilience and service life. 1.8mm thick steel frame, more sturdy and stable. Pu Leather, skin friendly and wear resisting.&nbsp;\r\n\r\nClass 3 gas lift, durable, reliable and supports up to 300lbs. Rubber casters, rolling quietly and tested by 1000 miles rolling\r\n\r\n<br></p>', '[\"23\",\"28\",\"20\",\"21\",\"22\"]', '[\"20\"]', '[\"7\"]', 5, 1),
-(14, 'Arctix Girls\' Frost Insulated Winter Jacket', '', '47', '68', 'assets/images/product_image/618698c415dca.jpg', '<p>\r\n\r\n</p><p>100% Polyester Dobby ThermaLock WP/ WR 5K coating, \r\n\r\nZipper closure, \r\n\r\nThermaTech insulation that keeps the warm in and cold out, \r\n\r\nWind-water resistant with breathable ThermaLock coating</p><p></p>', '[\"25\",\"28\",\"21\",\"22\",\"31\",\"32\"]', '[\"16\"]', '[\"8\"]', 5, 1),
-(15, 'Razer BlackShark V2 X Gaming Headset: 7.1', '', '82', '125', 'assets/images/product_image/6186a78b4b8c1.jpg', '<p>7.1 Surround Sound - 50mm Drivers - Memory Foam Cushion - for PC, PS4, PS5, Switch, Xbox One, Xbox Series X|S, Mobile - 3.5mm Audio Jack - Black<br></p>', '[\"17\",\"23\",\"25\",\"30\",\"21\"]', '[\"20\"]', '[\"10\"]', 6, 1),
-(16, 'Marbrasse 4-Trays Desk File Organizer', '', '35', '25', 'assets/images/product_image/6186a8e1267ab.jpg', '<p>\r\n\r\nOur Office Desk Supplies Organizer is made of 4 sliding trays + 2 Hanging Pencil Holders + 1 sliding drawer which has enough storage space to accommodate all office supplies, such as pens, pencils scissors, folders and Letter/A4 Size Paper.&nbsp;The mesh desk file organizer is made of lightweight durable metal mesh and reinforced with a solid steel frame that makes it have long-lasting strength and reliable performance\r\n\r\n\r\n\r\n</p>', '[\"23\",\"21\",\"22\"]', '[\"21\"]', '[\"14\"]', 6, 1),
-(17, 'Sample Product', '', '98', '20', 'assets/images/product_image/6186b18649b21.jpg', '<p>This is a sample product for testing!</p>', '[\"25\",\"28\",\"29\",\"20\",\"21\",\"22\"]', '[\"21\"]', '[\"13\"]', 6, 1);
+INSERT INTO `products` (`id`, `serial`, `name`, `sku`, `price`, `qty`, `new_qty`, `image`, `description`, `attribute_value_id`, `brand_id`, `category_id`, `store_id`, `unity_id`, `availability`) VALUES
+(24, '243226562', 'iphone', '', '223', '7', NULL, 'assets/images/product_image/664bae31d903d.jpg', '', '[\"23\",\"21\"]', 'null', 'null', 5, 2, 1),
+(26, '1237665', 'Pc Portable', '', '235', '36', NULL, 'assets/images/product_image/664e57aacca6f.jpg', '<p>\r\n\r\nOrdinateur tout-en-un que l\'on peut déplacer en raison de sa taille compacte et de la présence d\'une batterie qui lui permet de fonctionner un moment sans avoir besoin de source d\'alimentation.\r\n\r\n<br></p>', '[\"23\",\"25\",\"21\"]', '[\"31\"]', '[\"7\"]', 5, 2, 1),
+(27, '97856744', 'Pc', '', '765', '131', NULL, '<p>You did not select a file to upload.</p>', '<p>\r\n\r\nOrdinateur tout-en-un que l\'on peut déplacer en raison de sa taille compacte et de la présence d\'une batterie qui lui permet de fonctionner un moment sans avoir besoin de source d\'alimentation.\r\n\r\n<br></p>', 'null', 'null', 'null', 5, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -343,6 +317,25 @@ CREATE TABLE `stores` (
 INSERT INTO `stores` (`id`, `name`, `active`) VALUES
 (5, 'Dynamix', 1),
 (6, 'Taser', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `unities`
+--
+
+CREATE TABLE `unities` (
+  `id` int NOT NULL,
+  `name` varchar(110) NOT NULL,
+  `active` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `unities`
+--
+
+INSERT INTO `unities` (`id`, `name`, `active`) VALUES
+(2, 'PC', 1);
 
 -- --------------------------------------------------------
 
@@ -472,6 +465,12 @@ ALTER TABLE `stores`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `unities`
+--
+ALTER TABLE `unities`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -503,7 +502,7 @@ ALTER TABLE `attribute_value`
 -- AUTO_INCREMENT pour la table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `categories`
@@ -533,25 +532,31 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT pour la table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `orders_item`
 --
 ALTER TABLE `orders_item`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT pour la table `stores`
 --
 ALTER TABLE `stores`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `unities`
+--
+ALTER TABLE `unities`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `users`

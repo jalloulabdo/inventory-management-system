@@ -39,4 +39,17 @@ class Dashboard extends Admin_Controller
 		$this->data['is_admin'] = $is_admin;
 		$this->render_template('dashboard', $this->data);
 	}
+
+	public function displayData(){
+		$dataDashboar['total_paid_orders'] = $this->model_orders->countTotalOrders();
+		$dataDashboar['order_unpaid'] = $this->model_orders->orderUnPaid();
+		$dataDashboar['total_unpaid'] = $this->model_orders->totlaUnPaid();
+		$dataDashboar['total_brands'] = $this->model_products->countTotalbrands();
+		$dataDashboar['top_product'] = $this->model_products->topProduct();
+		$dataDashboar['alert_product'] = $this->model_products->alertProduct();
+		$dataDashboar['mount_months'] = $this->model_orders->mountMonth();
+		$dataDashboar['top_customer'] = $this->model_orders->topCustomer();
+		
+		echo json_encode($dataDashboar);
+	}
 }

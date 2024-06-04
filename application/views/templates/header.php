@@ -43,7 +43,7 @@
 
   <!-- jQuery 3 -->
   <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js') ?>"></script>
-  
+    
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     // $.widget.bridge('uibutton', $.ui.button);

@@ -106,7 +106,7 @@
                             <?php endforeach ?>
                           </select>
                         </td>
-                        <td><input type="text" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required
+                        <td><input type="number" name="qty[]" id="qty_<?php echo $x; ?>" class="form-control" required
                             onkeyup="getTotal(<?php echo $x; ?>)" value="<?php echo $val['qty'] ?>" autocomplete="off"></td>
                         <td>
                           <input type="text" name="rate[]" id="rate_<?php echo $x; ?>" class="form-control" disabled

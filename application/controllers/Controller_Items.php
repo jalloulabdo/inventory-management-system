@@ -99,7 +99,7 @@ class Controller_Items extends Admin_Controller
 		$this->form_validation->set_rules('active', 'Active', 'trim|required');
 
 		$this->form_validation->set_error_delimiters('<p class="text-danger">','</p>');
-		var_dump($this->form_validation->run());exit();
+		
         if ($this->form_validation->run() == TRUE) {
         	$data = array(
         		'name' => $this->input->post('brand_name'),

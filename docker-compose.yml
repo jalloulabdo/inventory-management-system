@@ -1,22 +1,41 @@
-version: '4.29.0'
+version: '3.7'
 
 services:
-  php:
-    build: 
-      context: .
-      dockerfile: Dockerfile.php
+  web:
+    build: .
     ports:
       - "80:80"
-    volumes:
-      - ./:/var/www/html
-
-  mysql:
-    build: 
-      context: .
-      dockerfile: Dockerfile.mysql
-    ports:
-      - "3306:3306"
+    depends_on:
+      - db
     environment:
-      MYSQL_DATABASE: inventorymgtci
-      MYSQL_ROOT_PASSWORD: ""
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=inventorymgci
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=my-secret-pw
+    volumes:
+      - .:/var/www/html
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+      MYSQL_DATABASE: inventorymgci
+      MYSQL_USER: root
+      MYSQL_PASSWORD: my-secret-pw
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: my-secret-pw
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    ports:
+      - "8080:80"
+
+volumes:
+  mysql_data:

@@ -41,11 +41,13 @@ class Controller_Products extends Admin_Controller
 		$result = array('data' => array());
 
 		$data = $this->model_products->getProductData();
+        $store_data =null;
 
 		foreach ($data as $key => $value) {
-
-            $store_data = $this->model_stores->getStoresData($value['store_id']);
-			// button
+            if (isset($value['store_id'])) {
+             $store_data = $this->model_stores->getStoresData($value['store_id']);
+            }
+            // button
             $buttons = '';
             if(in_array('updateProduct', $this->permission)) {
     			$buttons .= '<a href="'.base_url('Controller_Products/update/'.$value['id']).'" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>';
@@ -75,7 +77,7 @@ class Controller_Products extends Admin_Controller
 				$value['name'],
 				'$'.$value['price'],
                 $value['qty'] . ' ' . $qty_status,
-                $store_data['name'],
+                $store_data ? $store_data['name']: '',
 				$availability,
 				$buttons
 			);
@@ -141,7 +143,6 @@ class Controller_Products extends Admin_Controller
 
         	// attributes 
         	$attribute_data = $this->model_attributes->getActiveAttributeData();
-
         	$attributes_final_data = array();
         	foreach ($attribute_data as $k => $v) {
         		$attributes_final_data[$k]['attribute_data'] = $v;
@@ -184,6 +185,7 @@ class Controller_Products extends Admin_Controller
         }
         else
         {
+            
             $data = array('upload_data' => $this->upload->data());
             $type = explode('.', $_FILES['product_image']['name']);
             $type = $type[count($type) - 1];
@@ -254,7 +256,6 @@ class Controller_Products extends Admin_Controller
         else {
             // attributes 
             $attribute_data = $this->model_attributes->getActiveAttributeData();
-
             $attributes_final_data = array();
             foreach ($attribute_data as $k => $v) {
                 $attributes_final_data[$k]['attribute_data'] = $v;
@@ -263,7 +264,6 @@ class Controller_Products extends Admin_Controller
 
                 $attributes_final_data[$k]['attribute_value'] = $value;
             }
-            
             // false case
             $this->data['attributes'] = $attributes_final_data;
             $this->data['brands'] = $this->model_brands->getActiveBrands();         

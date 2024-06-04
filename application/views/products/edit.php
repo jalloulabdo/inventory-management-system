@@ -1,5 +1,3 @@
-
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -89,6 +87,7 @@
                   </textarea>
                 </div>
 
+            
                 <?php $attribute_id = json_decode($product_data['attribute_value_id']); ?>
                 <?php if($attributes): ?>
                   <?php foreach ($attributes as $k => $v): ?>
@@ -96,7 +95,7 @@
                       <label for="groups"><?php echo $v['attribute_data']['name'] ?></label>
                       <select class="form-control select_group" id="attributes_value_id" name="attributes_value_id[]" multiple="multiple">
                         <?php foreach ($v['attribute_value'] as $k2 => $v2): ?>
-                          <option value="<?php echo $v2['id'] ?>" <?php if(in_array($v2['id'], $attribute_id)) { echo "selected"; } ?>><?php echo $v2['value'] ?></option>
+                          <option value="<?php echo $v2['id'] ?>" <?php if(isset($attribute_id) && in_array($v2['id'], $attribute_id)) { echo "selected"; } ?>><?php echo $v2['value'] ?></option>
                         <?php endforeach ?>
                       </select>
                     </div>    
@@ -108,7 +107,7 @@
                   <?php $brand_data = json_decode($product_data['brand_id']); ?>
                   <select class="form-control select_group" id="brands" name="brands[]" multiple="multiple">
                     <?php foreach ($brands as $k => $v): ?>
-                      <option value="<?php echo $v['id'] ?>" <?php if(in_array($v['id'], $brand_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
+                      <option value="<?php echo $v['id'] ?>" <?php if(isset($brand_data) && in_array($v['id'], $brand_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
                 </div>
@@ -118,7 +117,7 @@
                   <?php $category_data = json_decode($product_data['category_id']); ?>
                   <select class="form-control select_group" id="category" name="category[]" multiple="multiple">
                     <?php foreach ($category as $k => $v): ?>
-                      <option value="<?php echo $v['id'] ?>" <?php if(in_array($v['id'], $category_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
+                      <option value="<?php echo $v['id'] ?>" <?php if(isset($category_data) && in_array($v['id'], $category_data)) { echo 'selected="selected"'; } ?>><?php echo $v['name'] ?></option>
                     <?php endforeach ?>
                   </select>
                 </div>
@@ -180,7 +179,11 @@
 
     $("#mainProductNav").addClass('active');
     $("#manageProductNav").addClass('active');
-    
+    setTimeout(function () {
+      $(".alert-dismissible").fadeOut("slow", function () {
+        $(this).remove();
+      });
+    }, 3000);
     var btnCust = '<button type="button" class="btn btn-secondary" title="Add picture tags" ' + 
         'onclick="alert(\'Call your custom code here.\')">' +
         '<i class="glyphicon glyphicon-tag"></i>' +
